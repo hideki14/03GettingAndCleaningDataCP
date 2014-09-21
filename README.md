@@ -63,7 +63,7 @@ Section 2: outlines the process.
 
 # 2. Process in run_analysis.R
 
-## read activity and feature data
+## read activity and feature data, line 5-21
 + get:
 + activity (6 by 2): read from activity.txt
 + feature (561 by 2):  read from features.txt
@@ -71,7 +71,7 @@ Section 2: outlines the process.
 
 ## construct data matrix
 
-### read from test directory, line 59
+### read from test directory, line 54
 + get: test.raw.data(2947 by 563)
 + data read
  + x (2947 by 561): measurements, read from X_test.txt
@@ -82,7 +82,7 @@ Section 2: outlines the process.
 + give column name
  + "subject.id", "activity.id", features.vc
 
-### read from train directory, line 64
+### read from train directory, line 59
 + get: train.raw.data(7352 by 563)
 + data read
  + x (7352 by 561): measurements, read from X_train.txt
@@ -93,15 +93,15 @@ Section 2: outlines the process.
 + give column name
  + "subject.id", "activity.id", features.vc
 
-### row bind, line 67
+### row bind, line 62
 + get: raw.data (10299 by 563)
  + row bind test and train data
 
-### add row number
+### add row number, line 65
 + get: raw.data1 (10299 by 564)
  + add row.number column for later sorting
 
-## select columns, line 76
+## select columns, line 71
 + get: raw.data2 (10299, 69), contains columns:
  + row.number
  + subject.id
@@ -109,30 +109,34 @@ Section 2: outlines the process.
  + mean columns, variable names containing **mean()**
  + std columns, variable names containing **std()**
 
-## give activity name, line 84
+## give activity name, line 79
 + get: raw.data3 (10299 by 70)
  + add activity name column by merging raw.data2 and activity with common activity.id
 
-## sort raw.data3
+## sort raw.data3, line 83
 + get: raw.data4
  + sort raw.data3 with row.number
 
-## reorder columns
+## reorder columns of raw.data4, line 88
 + get: raw.data5: select and put columns in order of:
  + subject.id, activity, mean and std variables
 
-## transform variable names in raw.data4, line 99-115
+## transform variable names in raw.data5, line 90-110
 + get: raw.data5
 + transformation policy was described in CodeBook.md
 + correct typo BodyBody in original variable name
 
-## group_by raw.data5, line 118
+## group_by raw.data5, line 113
 - get: by_subject.activity
 - categorize raw.data5 with subject.id and activity
 
-## calculate mean with by_subject.activity, line 121
+## calculate mean with by_subject.activity, line 116
 - get: tidy.data
 - used summarise_each()
 
-## write file, line 125
+## write file, line 120
 - write: tidy.data
+
+## misc., line 122-
+- output variable names for codebook
+
