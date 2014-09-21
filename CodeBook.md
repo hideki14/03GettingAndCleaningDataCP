@@ -12,12 +12,12 @@ the variable naming rules
 
 # 2. variable name list
 ## 2.1 added variables
-1 subject.id (1 to 30)
-2 activity ()
+1. subject.id (1 to 30)
+1. activity ()
 
 ## 2.2 converted variables
 
-time.body.accelerometer.mean.x
+1. time.body.accelerometer.mean.x
 
 time.body.accelerometer.mean.y
 
