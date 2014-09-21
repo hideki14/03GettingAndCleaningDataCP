@@ -48,16 +48,29 @@ README.md
 
 ## activity and feature data acquisiton 
 
-### run_analysis.R l.10 - l.23
-+ activity list was read from activity.txt
-+ feature list was read from features.txt
++ activity (6 by 2): read from activity.txt
++ feature (561 by 2):  read from features.txt
++ features.vc (1 by 561): vector of variable names
 
-### data matrix construction
+## data matrix construction
 
-#### read from test directory
-+ read test data line 59
- + read X data
- + rbind (subject, y, X)
- + subject: subject IDs
- + y: activity IDs
+### read from test directory
++ read
+ + x (2947 by 561): measurements, read from X_test.txt
+ + y (2947 by 1): activity ID, read from y_test.txt
+ + subject (2947 by 1): subject ID, read from subject_test.txt
++ column combine 
+ + cbind (subject, y, x)
++ give column name
+ + "subject.id", "activity.id", features.vc
+
+### read from train directory
++ read
+ + x (7352 by 561): measurements, read from X_train.txt
+ + y (7352 by 1): activity ID, read from y_train.txt
+ + subject (7352 by 1): subject ID, read from subject_train.txt
++ column combine 
+ + cbind (subject, y, x)
++ give column name
+ + "subject.id", "activity.id", features.vc
  
