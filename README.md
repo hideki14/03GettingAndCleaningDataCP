@@ -44,18 +44,18 @@ README.md
  * elements: activity IDs, levels 1 to 6
  * comments: there were 6 activities described in activity_labels.txt
 
-# Process
+# Process in run_analysis.R
 
-## activity and feature data acquisiton 
+## read activity and feature data
 
 + activity (6 by 2): read from activity.txt
 + feature (561 by 2):  read from features.txt
 + features.vc (1 by 561): vector of variable names
 
-## data matrix construction
+## construct data matrix
 
-### read from test directory
-+ read
+### read from test directory, line 59
++ data read
  + x (2947 by 561): measurements, read from X_test.txt
  + y (2947 by 1): activity ID, read from y_test.txt
  + subject (2947 by 1): subject ID, read from subject_test.txt
@@ -63,9 +63,10 @@ README.md
  + cbind (subject, y, x)
 + give column name
  + "subject.id", "activity.id", features.vc
++ result (2947 by 563)
 
-### read from train directory
-+ read
+### read from train directory, line 64
++ data read
  + x (7352 by 561): measurements, read from X_train.txt
  + y (7352 by 1): activity ID, read from y_train.txt
  + subject (7352 by 1): subject ID, read from subject_train.txt
@@ -73,4 +74,26 @@ README.md
  + cbind (subject, y, x)
 + give column name
  + "subject.id", "activity.id", features.vc
- 
++ result (7352 by 563)
+
+### row bind, line 67
++ raw.data (10299 by 563): row bind test and train data
+
+### add row number
++ raw.data1 (10299 by 564): add row.number column for later sorting
+
+## select columns, line 76
++ raw.data2 (10299, 69), contains columns:
+ + row.number
+ + subject.id
+ + activity.id
+ + mean columns
+  + variable names containing mean()
+ + std columns
+  + variable names containing std()
+
+## give activity name, line 84
++ raw.data3 (10299 by 70)
+ + add activity name column by merging raw.data2 and activity with common activity.id
+
+
