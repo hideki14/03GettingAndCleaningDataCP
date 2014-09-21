@@ -43,4 +43,8 @@ README.md
  * rows: testing data observation
  * elements: activity IDs, levels 1 to 6
  * comments: there were 6 activities described in activity_labels.txt
+
 # Process
+
++ activity list was read from activity.txt
++ feature list was read from features.txt
