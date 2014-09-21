@@ -1,6 +1,6 @@
 README.md
 =========
-# Data files
+# 1. Data files
 
 ## data directory
 
@@ -44,7 +44,7 @@ README.md
  * elements: activity IDs, levels 1 to 6
  * comments: there were 6 activities described in activity_labels.txt
 
-# Process in run_analysis.R
+# 2. Process in run_analysis.R
 
 ## read activity and feature data
 
@@ -77,23 +77,39 @@ README.md
 + result (7352 by 563)
 
 ### row bind, line 67
-+ raw.data (10299 by 563): row bind test and train data
++ get: raw.data (10299 by 563): row bind test and train data
 
 ### add row number
-+ raw.data1 (10299 by 564): add row.number column for later sorting
++ get: raw.data1 (10299 by 564): add row.number column for later sorting
 
 ## select columns, line 76
-+ raw.data2 (10299, 69), contains columns:
++ get: raw.data2 (10299, 69), contains columns:
  + row.number
  + subject.id
  + activity.id
- + mean columns
-  + variable names containing mean()
- + std columns
-  + variable names containing std()
+ + mean columns, variable names containing mean()
+ + std columns, variable names containing std()
 
 ## give activity name, line 84
-+ raw.data3 (10299 by 70)
++ get: raw.data3 (10299 by 70)
  + add activity name column by merging raw.data2 and activity with common activity.id
 
+## sort raw.data3
++ get: raw.data4
+ + sort raw.data3 with row.number
 
+## reorder columns
++ get: raw.data5: select and put columns in order of:
+ + subject.id, activity, mean and std variables
+
+## transform variable names in raw.data4, line 99-115
++ get: raw.data5
++ transformation policy was described in CodeBook.md
++ correct typo BodyBody in original variable name
+
+## group_by raw.data5, line 118
+- get: by_subject.activity
+- categorize raw.data5 with subject.id and activity
+
+## mean calculation, line 121
+- get: tidy.data
