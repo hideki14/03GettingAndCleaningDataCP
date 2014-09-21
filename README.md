@@ -46,6 +46,18 @@ README.md
 
 # Process
 
-## activity and feature data acquisiton (run_analysis.R l.10--l.23
+## activity and feature data acquisiton 
+
+### run_analysis.R l.10 - l.23
 + activity list was read from activity.txt
 + feature list was read from features.txt
+
+### data matrix construction
+
+#### read from test directory
++ read test data line 59
+ + read X data
+ + rbind (subject, y, X)
+ + subject: subject IDs
+ + y: activity IDs
+ 
