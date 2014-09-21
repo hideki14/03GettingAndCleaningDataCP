@@ -64,7 +64,7 @@ Section 2: outlines the process.
 # 2. Process in run_analysis.R
 
 ## read activity and feature data
-
++ get:
 + activity (6 by 2): read from activity.txt
 + feature (561 by 2):  read from features.txt
 + features.vc (1 by 561): vector of variable names
@@ -72,6 +72,7 @@ Section 2: outlines the process.
 ## construct data matrix
 
 ### read from test directory, line 59
++ get: test.raw.data(2947 by 563)
 + data read
  + x (2947 by 561): measurements, read from X_test.txt
  + y (2947 by 1): activity ID, read from y_test.txt
@@ -80,9 +81,9 @@ Section 2: outlines the process.
  + cbind (subject, y, x)
 + give column name
  + "subject.id", "activity.id", features.vc
-+ result (2947 by 563)
 
 ### read from train directory, line 64
++ get: train.raw.data(7352 by 563)
 + data read
  + x (7352 by 561): measurements, read from X_train.txt
  + y (7352 by 1): activity ID, read from y_train.txt
@@ -91,21 +92,22 @@ Section 2: outlines the process.
  + cbind (subject, y, x)
 + give column name
  + "subject.id", "activity.id", features.vc
-+ result (7352 by 563)
 
 ### row bind, line 67
-+ get: raw.data (10299 by 563): row bind test and train data
++ get: raw.data (10299 by 563)
+ + row bind test and train data
 
 ### add row number
-+ get: raw.data1 (10299 by 564): add row.number column for later sorting
++ get: raw.data1 (10299 by 564)
+ + add row.number column for later sorting
 
 ## select columns, line 76
 + get: raw.data2 (10299, 69), contains columns:
  + row.number
  + subject.id
  + activity.id
- + mean columns, variable names containing mean()
- + std columns, variable names containing std()
+ + mean columns, variable names containing **mean()**
+ + std columns, variable names containing **std()**
 
 ## give activity name, line 84
 + get: raw.data3 (10299 by 70)
@@ -133,3 +135,4 @@ Section 2: outlines the process.
 - used summarise_each()
 
 ## write file, line 125
+- write: tidy.data

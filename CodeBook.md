@@ -1,10 +1,21 @@
-Coursera Getting and Cleaning Data Course Project
-=================================================
-# variable name list
-## subject id number
-subject.id
-## activity name
-activity
+CodeBook.md
+===========
+This file describes:
+the variable naming rules
+ and the list of all variables
+ in **tidy.txt**
+
+# 1. Variable naming rules
+ - used lower case letters
+ - used period for name delimiter (not "-" nor "_")
+ - expanded abbreviations to full names (Acc -> accelerometer)
+
+# 2. variable name list
+## 2.1 added variables
+1 subject.id (1 to 30)
+2 activity ()
+
+## 2.2 converted variables
 
 time.body.accelerometer.mean.x
 
