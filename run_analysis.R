@@ -1,12 +1,7 @@
 ##
 library(dplyr)
 library(tidyr)
-## strl
-#setwd("/Users/tanaka/Documents/#04e-Learning/03_GetClean2014Sep/CourseProj/data/UCI HAR Dataset")
-## home
-setwd("/Users/Hideki/Documents/#04_Learning/Coursera/03_GetClean_2014Sep/CourseProj/data/UCI HAR Dataset")
-
-## activity data acquisition
+## put this script where data "UCI HAR Dataset" is stored and run
 activity <- read.table("./activity_labels.txt")
 str(activity)
 names(activity) <- c("activity.id", "activity")
@@ -27,14 +22,14 @@ features.vc <- as.vector(features$variable.name)
 ##
 
 ## 
-## function: 
+## function: synthesize file name
 ##
 GetFileName <- function(suffix, workdir){
         paste("./" ,workdir, "/", suffix, "_", workdir,".txt", sep ="" )
 }
 
 ##
-## function:
+## function: combine subject.id activity.id and measurement data
 ##
 CombineXYSubj<- function(workdir){
         ## acquisition of X data ( measurements )
@@ -126,3 +121,4 @@ write.table(tidy.data, file = "./tidy.txt", row.name=FALSE)
 
 ## for codebook
 column.names <- names(tidy.data)
+write.table(column.names, file = "./column_names.txt", row.name=FALSE, quote=FALSE)
