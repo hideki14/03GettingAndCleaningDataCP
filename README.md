@@ -46,5 +46,6 @@ README.md
 
 # Process
 
+## activity and feature data acquisiton (run_analysis.R l.10--l.23
 + activity list was read from activity.txt
 + feature list was read from features.txt
