@@ -21,6 +21,7 @@ the variable naming rules
 # 2. variable name list
 - variable 1 was added with **subject_[test|train].txt**
 - variable 2 was added with **y_[test|train].txt** and **activity_labels.txt**
+
 - variables 3 to 68 were converted from **features.txt** with the rules in section 1
 
 1. subject.id (1 to 30)
