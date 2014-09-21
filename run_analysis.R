@@ -1,5 +1,6 @@
 ##
 library(dplyr)
+library(tidyr)
 ## strl
 #setwd("/Users/tanaka/Documents/#04e-Learning/03_GetClean2014Sep/CourseProj/data/UCI HAR Dataset")
 ## home
@@ -12,6 +13,7 @@ names(activity) <- c("activity.id", "activity")
 
 ## lower case transformation of activity names for easier reading 
 activity$activity <- tolower(activity$activity)
+activity$activity <- gsub("_", ".", activity$activity)
 activity
 
 ## feature data acquisition
@@ -87,11 +89,13 @@ raw.data4 <- arrange(raw.data3, row.number)
 str(raw.data4)
 
 ## select and change column order 
-raw.data5 <- select(raw.data4, row.number, subject.id, activity.id, activity, 4:69)
-
+## raw.data5 <- select(raw.data4, row.number, subject.id, activity.id, activity, 4:69)
+raw.data5 <- select(raw.data4, subject.id, activity, 4:69)
 ## 
 c.names <- names(raw.data5)
-## 
+##
+## convert original variable name to comprehensive ones
+##
 VarNameTrans <- function(x){
         x <- gsub("^t", "time", x)
         x <- gsub("^f", "frequency", x)
@@ -101,8 +105,24 @@ VarNameTrans <- function(x){
         x <- gsub("Mag", ".magnitude", x)
         x <- gsub("Gravity", ".gravity", x)
         x <- gsub("-", ".", x)
-        ## correction typo and conversion
- }
-newc <- tolower(VarNameTrans(c))
-newc
-sort(newc)
+        x <- gsub("\\(\\)", "", x)
+        ## correct typo and convert
+        x <- gsub("BodyBody", "Body", x)
+        x <- gsub("Body", ".body", x)        
+}
+c.names.new <- tolower(VarNameTrans(c.names))
+
+names(raw.data5) <- c.names.new
+
+str(raw.data5)
+by.subject.activity <- group_by(raw.data5, subject.id, activity)
+
+## mean each column with by.subject.activity 
+tidy.data <- summarise_each(by.subject.activity, funs(mean))
+head(tidy.data, 20)
+str(tidy.data)
+dim(tidy.data)
+write.table(tidy.data, file = "./tidy.txt", row.name=FALSE)
+
+## for codebook
+column.names <- names(tidy.data)
