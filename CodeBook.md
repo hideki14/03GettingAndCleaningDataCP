@@ -16,7 +16,7 @@ the variable naming rules
   - t -> time
   - Acc -> accelerometer
   - Mag -> magnitude
-  - **std** was **not* converted
+  - **std** was **not** converted
 
 # 2. variable name list
 - variable 1 was added with **subject_[test|train].txt**
