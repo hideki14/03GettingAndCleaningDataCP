@@ -50,11 +50,16 @@ Section 2: outlines the process.
  * elements: activity IDs, levels 1 to 6
  * comments: there were 6 activities described in activity_labels.txt
 
-## dimention relationship
+## dimention relationship among files
+- files in train and test directories
+
 |subject.id                |activity.id         |measurements         |
 |:-------------------------|:-------------------|:--------------------|
-|subject_train.txtf(7352,1)|y_train.txt (7352,1)|X_train.txt(7352,561)|
+|subject_train.txt (7352,1)|y_train.txt (7352,1)|X_train.txt(7352,561)|
 |subject_test.txt (2947,1) |y_test.txt (2947,1) |X_test.txt (2947,561)|
+
+- activity.id (6 levels) can be transformed into activity names with activity_labels.txt
+- 561 variable names for measurements can be added with features.txt
 
 # 2. Process in run_analysis.R
 
