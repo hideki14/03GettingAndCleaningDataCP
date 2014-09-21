@@ -2,7 +2,7 @@ README.md
 =========
 # Data files
 
- ** data directory **
+## data directory
 
 * activity_labels.txt
  * 2 columns by 6 rows
@@ -14,7 +14,7 @@ README.md
  * columns: variable ID number and the variable name
  * rows: 561 pairs of (id, variable name)
 
- ** train directory ./train **
+## train directory ./train
 
 * X_train.txt: 7352 by 561 numerical matrix
  * columns: 561 variables
@@ -29,7 +29,7 @@ README.md
  * elements: activity IDs, levels 1 to 6
  * comments: there were 6 activities described in activity_labels.txt
 
-** test directory ./test **
+## test directory ./test 
 
 * X_test.txt: 2947 by 561 numerical matrix
  * columns: 561 variables
