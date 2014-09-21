@@ -1,8 +1,9 @@
 Coursera Getting and Cleaning Data Course Project
 =================================================
-## variable name list
+# variable name list
+## subject id number
 subject.id
-
+## activity name
 activity
 
 time.body.accelerometer.mean.x
