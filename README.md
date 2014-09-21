@@ -58,8 +58,8 @@ Section 2: outlines the process.
 |subject_train.txt (7352,1)|y_train.txt (7352,1)|X_train.txt(7352,561)|
 |subject_test.txt (2947,1) |y_test.txt (2947,1) |X_test.txt (2947,561)|
 
-- activity.id (6 levels) can be transformed into activity names with activity_labels.txt
-- 561 variable names for measurements can be added with features.txt
+- activity.id (6 levels) can be transformed into activity names with **activity_labels.txt**
+- 561 variable names for measurements can be added with **features.txt**
 
 # 2. Process in run_analysis.R
 
