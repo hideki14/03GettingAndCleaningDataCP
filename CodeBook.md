@@ -12,9 +12,11 @@ the variable naming rules
  - used lower case letters
  - used period for name delimiter (not "-" nor "_")
  - expanded abbreviations to full names 
+  - f -> frequency
+  - t -> time
   - Acc -> accelerometer
   - Mag -> magnitude
-  - std was not converted
+  - **std** was **not* converted
 
 # 2. variable name list
 - variable 1 was added with **subject_[test|train].txt**
