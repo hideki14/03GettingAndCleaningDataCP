@@ -1,5 +1,11 @@
 README.md
 =========
+This file has two sections: 1 data files and 2 process in run_analysis.R.
+
+Section 1 describes the relationships among files.
+
+Section 2 outlines the process of the script. 
+
 # 1. Data files
 
 ## data directory
@@ -111,5 +117,8 @@ README.md
 - get: by_subject.activity
 - categorize raw.data5 with subject.id and activity
 
-## mean calculation, line 121
+## calculate mean with by_subject.activity, line 121
 - get: tidy.data
+- used summarise_each()
+
+## write file, line 125
