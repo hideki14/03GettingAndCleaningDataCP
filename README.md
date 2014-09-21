@@ -1,10 +1,8 @@
 README.md
 =========
-This file has two sections: 1 data files and 2 process in run_analysis.R.
-
-Section 1 describes the relationships among files.
-
-Section 2 outlines the process of the script. 
+This file has two sections.
+Section 1: describes the relationships among files used in the script.
+Section 2: outlines the process.
 
 # 1. Data files
 
